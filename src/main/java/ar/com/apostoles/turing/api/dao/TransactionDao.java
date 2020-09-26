@@ -13,5 +13,4 @@ public interface TransactionDao {
 
   List<TransactionPerWeek> findAllBySkuAndLocalPerWeek(Long sku, Long local);
   
-  int count();
 }

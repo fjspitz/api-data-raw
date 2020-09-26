@@ -101,38 +101,6 @@ public class TransactionController {
     }
   }
   
-//  @ResponseBody
-//  @GetMapping("/sales/week/all")
-//  public ResponseEntity<ResponseBySalesPerWeekDto> findAllBySKUAndLocalGroupByWeek(
-//      @RequestParam("sku") long sku,
-//      @RequestParam("local") long local) {
-//
-//    try {
-//      ResponseBySalesPerWeekDto response = new ResponseBySalesPerWeekDto();
-//      
-//      List<TransactionPerWeek> sales = transactionService.findAllBySkuAndLocalPerWeek(sku, local);
-//      
-//      response.setSales(sales);
-//      response.setRows(sales.size());
-//      
-//      return new ResponseEntity<>(response, HttpStatus.OK);
-//      
-//    } catch (EmptyResultDataAccessException e) {
-//      throw new ResponseStatusException(HttpStatus.NOT_FOUND, "SKU ID not found", e);
-//    } catch (Exception e) {
-//      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Missing parameters!", e);
-//    }
-//  }
-  
-  @ResponseBody
-  @GetMapping("/test")
-  public ResponseEntity<Integer> test() {
-    
-    int products = transactionService.countProducts();
-    
-    return new ResponseEntity<>(products, HttpStatus.OK);
-  }
-  
   public static Timestamp convertStringToTimestamp(String strDate) {
     try {
       DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");

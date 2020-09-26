@@ -31,9 +31,4 @@ public class TransactionServiceImpl implements TransactionService {
   public List<TransactionPerWeek> findAllBySkuAndLocalPerWeek(Long sku, Long local) {
     return repository.findAllBySkuAndLocalPerWeek(sku, local);
   }
-  
-  @Override
-  public int countProducts() {
-    return repository.count();
-  }
 }

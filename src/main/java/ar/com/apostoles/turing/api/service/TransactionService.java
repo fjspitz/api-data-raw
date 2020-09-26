@@ -13,6 +13,4 @@ public interface TransactionService {
   public List<TransactionPerWeek> findBySkuAndLocalPerWeek(Long sku, Long local, Timestamp since, Timestamp to);
   
   public List<TransactionPerWeek> findAllBySkuAndLocalPerWeek(Long sku, Long local);
-  
-  public int countProducts();
 }

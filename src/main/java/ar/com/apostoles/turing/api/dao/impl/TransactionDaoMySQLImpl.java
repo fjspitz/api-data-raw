@@ -40,9 +40,4 @@ public class TransactionDaoMySQLImpl implements TransactionDao {
         "SELECT YEAR(date) as year, WEEK(date) as week_nro, SUM(units) as units FROM `sales` WHERE sku = ? AND loc_id = ? GROUP BY 1, 2", 
         new Object[] { sku, local }, new TransactionPerWeekRowMapper());
   }
-  
-  @Override
-  public int count() {
-    return jdbcTemplate.queryForObject("select count(1) from `sales`", Integer.class);
-  }
 }
