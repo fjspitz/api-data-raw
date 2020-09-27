@@ -37,8 +37,8 @@ public class TransactionController {
   @ResponseBody
   @GetMapping("/sales")
   public ResponseEntity<ResponseBySalesPerDateDto> findBySKUAndLocal(
-      @RequestParam("sku") long sku, 
-      @RequestParam("local") long local,
+      @RequestParam("sku") Long sku, 
+      @RequestParam("local") Long local,
       @RequestParam("desde") String desde, 
       @RequestParam("hasta") String hasta) {
     
@@ -65,8 +65,8 @@ public class TransactionController {
   @ResponseBody
   @GetMapping("/sales/week")
   public ResponseEntity<ResponseBySalesPerWeekDto> findBySKUAndLocalGroupByWeek(
-      @RequestParam("sku") long sku,
-      @RequestParam("local") long local,
+      @RequestParam("sku") Long sku,
+      @RequestParam(name = "local", required = false) Long local,
       @RequestParam(name = "desde", required = false) String desde, 
       @RequestParam(name = "hasta", required = false) String hasta) {
     
@@ -97,7 +97,7 @@ public class TransactionController {
     } catch (EmptyResultDataAccessException e) {
       throw new ResponseStatusException(HttpStatus.NOT_FOUND, "SKU ID not found", e);
     } catch (Exception e) {
-      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Missing parameters!", e);
+      throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
     }
   }
   

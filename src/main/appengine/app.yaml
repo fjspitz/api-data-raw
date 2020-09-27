@@ -1,7 +1,15 @@
 runtime: java11
 instance_class: F1
+
 service: service-api-raw
+
 env_variables:
   MYSQL_HOST: "random.devteam.com.ar"
   MYSQL_USER: "root"
   MYSQL_PASS: "apostoles"
+
+inbound_services:
+- warmup
+
+automatic_scaling:
+  min_instances: 1

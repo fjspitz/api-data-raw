@@ -15,6 +15,7 @@ public class TransactionPerWeekRowMapper implements RowMapper<TransactionPerWeek
     TransactionPerWeek trx = new TransactionPerWeek();
     trx.setYear(rs.getInt("year"));
     trx.setWeekNumber(rs.getInt("week_nro"));
+    trx.setLocal(rs.getLong("loc_id"));
     trx.setUnits(rs.getLong("units"));
 
     return trx;

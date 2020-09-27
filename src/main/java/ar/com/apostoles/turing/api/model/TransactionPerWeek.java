@@ -6,5 +6,6 @@ import lombok.Data;
 public class TransactionPerWeek {
   private int year;
   private int weekNumber;
+  private long local;
   private long units;
 }
